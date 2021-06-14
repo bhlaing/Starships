@@ -31,6 +31,11 @@ class ShipsAdapter : RecyclerView.Adapter<ShipsAdapter.SpaceshipViewHolder>() {
         this.onFavListener = onFavListener
     }
 
+    fun setStarShips(starShips: List<StarShipItem>) {
+        this.starShips = starShips
+        notifyDataSetChanged()
+    }
+
     fun updateStarShips(starShips: List<StarShipItem>, updatedItem: Int) {
         this.starShips = starShips
         notifyItemChanged(updatedItem)

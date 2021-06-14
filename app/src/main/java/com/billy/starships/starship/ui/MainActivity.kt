@@ -5,6 +5,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.billy.starships.databinding.ActivityMainBinding
+import com.billy.starships.shared.observeNonNull
+import com.billy.starships.starship.ui.model.StarShipItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,8 +23,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpStarshipsList()
+        setUpObservers()
     }
 
+    override fun onStart() {
+        viewModel.initialise()
+
+        super.onStart()
+    }
+
+    private fun setUpObservers() {
+        observeNonNull(viewModel.starShips, ::onStarShipsReceived)
+    }
+
+    private fun onStarShipsReceived(starShipItems: List<StarShipItem>) {
+        shipAdapter.setStarShips(starShipItems)
+    }
 
     private fun setUpStarshipsList() {
         shipAdapter = ShipsAdapter().apply { setOnFavListener { viewModel.onFav(it) } }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Region text styles -->
+    <style name="SpaceShipApp.Text" parent="TextAppearance.AppCompat">
+        <!-- Do not use -->
+    </style>
+    <!-- Activity,Fragment titles -->
+    <style name="SpaceShipApp.Text.PageTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Paragraphs -->
+    <style name="SpaceShipApp.Text.Paragraph">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">sans-serif-condensed-light</item>
+        <item name="android:padding">4dp</item>
+    </style>
+    <!-- List titles, Buttons, Tabs -->
+    <style name="SpaceShipApp.Text.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">4dp</item>
+    </style>
+    <!-- List item titles, Important text snippets -->
+    <style name="SpaceShipApp.Text.ItemTitle">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- Secondary text, captions -->
+    <style name="SpaceShipApp.Text.Captions">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+</resources>

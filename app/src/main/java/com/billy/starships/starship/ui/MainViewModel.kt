@@ -18,7 +18,6 @@ class MainViewModel @Inject constructor(private val starshipService: StarshipSer
     val starShips: LiveData<List<StarShipItem>> = _starShips
 
     fun onFav(position: Int) {
-
     }
 
     fun initialise() = retrieveStarShips()

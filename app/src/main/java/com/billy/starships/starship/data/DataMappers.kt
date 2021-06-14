@@ -7,6 +7,6 @@ fun mapToStarShipFleet(startShipsDO: StartShipsDO?) =
         startShipsDO?.results?.map {
             StarshipFleet.Starship(it.name, it.model, it.manufacturer)
         } ?: throw IllegalStateException("No army in the fleet!"),
-        startShipsDO.next.isNotBlank(),
-        startShipsDO.previous.isNotBlank()
+        !startShipsDO.next.isNullOrBlank(),
+        !startShipsDO.previous.isNullOrBlank()
     )
