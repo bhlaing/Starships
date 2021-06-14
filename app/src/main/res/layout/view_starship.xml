@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/name_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ship name :" />
+
+        <TextView
+            android:id="@+id/ship_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Starship name 1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/model_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_layout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ship model :" />
+
+        <TextView
+            android:id="@+id/ship_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Starship model 1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/manufacturer_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/model_layout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ship manufacturer :" />
+
+        <TextView
+            android:id="@+id/ship_manufacturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Starship model 1" />
+    </LinearLayout>
+
+<ImageView
+    android:id="@+id/fav_icon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:layout_alignParentEnd="true"
+    android:src="@drawable/ic_favorite_24"/>
+
+</RelativeLayout>
