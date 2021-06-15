@@ -3,6 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".starship.ui.DescriptionActivity">
-    <include android:id="@+id/descriptionLayout" layout="@layout/view_starship" />
+    android:orientation="vertical"
+    android:visibility="invisible"
+    tools:context=".starship.ui.description.DescriptionActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray" />
+
+    <include
+        android:id="@+id/descriptionLayout"
+        layout="@layout/view_starship" />
 </LinearLayout>

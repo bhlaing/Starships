@@ -1,4 +1,4 @@
-package com.billy.starships.starship.domain._di
+package com.billy.starships.starship.data._di
 
 import com.billy.starships.starship.data.StarshipService
 import com.billy.starships.starship.data.StarshipServiceImpl

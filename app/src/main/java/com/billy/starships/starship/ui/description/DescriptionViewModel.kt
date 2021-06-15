@@ -1,10 +1,10 @@
-package com.billy.starships.starship.ui
+package com.billy.starships.starship.ui.description
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.billy.starships.preferences.PreferenceManager
+import com.billy.starships.starship.ui.shared.preferences.PreferenceManager
 import com.billy.starships.starship.data.StarshipService
 import com.billy.starships.starship.domain.model.StarshipFleet
 import com.billy.starships.starship.ui.model.StarShipItem
@@ -21,6 +21,9 @@ class DescriptionViewModel @Inject constructor(
     private val _starShip: MutableLiveData<StarShipItem> = MutableLiveData()
     val starShip: LiveData<StarShipItem> = _starShip
 
+    private val _loading: MutableLiveData<Boolean> = MutableLiveData()
+    val loading: LiveData<Boolean> = _loading
+
     fun initialise(shipNumber: String) = retrieveStarShip(shipNumber)
 
     fun onFav(shipNumber: String) {
@@ -31,8 +34,10 @@ class DescriptionViewModel @Inject constructor(
 
     private fun retrieveStarShip(shipNumber: String) =
         viewModelScope.launch {
+            _loading.value = true
             val ship = starshipService.getStarShipByNumber(shipNumber)
             _starShip.value = mapToStarShipItem(ship, preferenceManager.getFavouriteSites())
+            _loading.value = false
         }
 
     private fun mapToStarShipItem(

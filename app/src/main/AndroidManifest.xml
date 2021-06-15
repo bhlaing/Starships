@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Starships"
         tools:targetApi="m">
-        <activity android:name=".starship.ui.DescriptionActivity" />
+        <activity android:name=".starship.ui.description.DescriptionActivity" />
         <activity
             android:name=".starship.ui.MainActivity"
             android:label="@string/title_activity_main"

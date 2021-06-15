@@ -19,4 +19,5 @@ fun mapStarShip(starShip: StartShipsDO.StarShip) = starShip.let {
 }
 
 private fun formatShipNumber(urlString: String) =
-    urlString.removePrefix("http://swapi.dev/api/starships/").removeSuffix("/")
+    urlString.removePrefix("http://swapi.dev/api/starships/")
+        .removeSuffix("/")

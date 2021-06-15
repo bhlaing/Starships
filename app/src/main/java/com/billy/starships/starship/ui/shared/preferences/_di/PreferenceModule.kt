@@ -1,7 +1,7 @@
-package com.billy.starships.preferences._di
+package com.billy.starships.starship.ui.shared.preferences._di
 
-import com.billy.starships.preferences.PreferenceManager
-import com.billy.starships.preferences.PreferenceManagerImpl
+import com.billy.starships.starship.ui.shared.preferences.PreferenceManager
+import com.billy.starships.starship.ui.shared.preferences.PreferenceManagerImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

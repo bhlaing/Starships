@@ -13,14 +13,14 @@
 
         <TextView
             style="@style/SpaceShipApp.Text.ItemTitle"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/label_inset"
             android:layout_height="wrap_content"
-            android:text="Ship name :" />
+            android:text="@string/ship_name" />
 
         <TextView
             android:id="@+id/ship_name"
             style="@style/SpaceShipApp.Text.Paragraph"
-            android:layout_width="260dp"
+            android:layout_width="@dimen/content_inset"
             android:layout_height="wrap_content"
             tools:text="Starship name 1" />
     </LinearLayout>
@@ -34,14 +34,14 @@
 
         <TextView
             style="@style/SpaceShipApp.Text.ItemTitle"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/label_inset"
             android:layout_height="wrap_content"
-            android:text="Ship model :" />
+            android:text="@string/ship_model" />
 
         <TextView
             android:id="@+id/ship_model"
             style="@style/SpaceShipApp.Text.Paragraph"
-            android:layout_width="260dp"
+            android:layout_width="@dimen/content_inset"
             android:layout_height="wrap_content"
             tools:text="Starship model 1" />
     </LinearLayout>
@@ -55,14 +55,14 @@
 
         <TextView
             style="@style/SpaceShipApp.Text.ItemTitle"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/label_inset"
             android:layout_height="wrap_content"
-            android:text="Ship manufacturer :" />
+            android:text="@string/ship_manufacturer" />
 
         <TextView
             android:id="@+id/ship_manufacturer"
             style="@style/SpaceShipApp.Text.Paragraph"
-            android:layout_width="260dp"
+            android:layout_width="@dimen/content_inset"
             android:layout_height="wrap_content"
             tools:text="Starship model 1" />
     </LinearLayout>

@@ -41,11 +41,6 @@ class ShipsAdapter : RecyclerView.Adapter<ShipsAdapter.SpaceshipViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun updateStarShips(starShips: List<StarShipItem>, updatedItem: Int) {
-        this.starShips = starShips
-        notifyItemChanged(updatedItem)
-    }
-
     inner class SpaceshipViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val binding = ViewStarshipBinding.bind(view)
