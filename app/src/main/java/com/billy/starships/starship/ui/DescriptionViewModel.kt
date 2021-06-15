@@ -13,35 +13,33 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
-    private val starshipService: StarshipService,
-    private val preferenceManager: PreferenceManager
+class DescriptionViewModel @Inject constructor(
+    private val preferenceManager: PreferenceManager,
+    private val starshipService: StarshipService
 ) : ViewModel() {
 
-    private val _starShips: MutableLiveData<List<StarShipItem>> = MutableLiveData()
-    val starShips: LiveData<List<StarShipItem>> = _starShips
+    private val _starShip: MutableLiveData<StarShipItem> = MutableLiveData()
+    val starShip: LiveData<StarShipItem> = _starShip
+
+    fun initialise(shipNumber: String) = retrieveStarShip(shipNumber)
 
     fun onFav(shipNumber: String) {
-       if(preferenceManager.updateStarshipPreference(shipNumber)) {
-           retrieveStarShips()
-       }
-    }
-
-    fun initialise() = retrieveStarShips()
-
-    private fun retrieveStarShips() {
-        viewModelScope.launch {
-            val fleet = starshipService.getStarships()
-            _starShips.value =
-                mapToStarShipItems(fleet.starShips, preferenceManager.getFavouriteSites())
+        if(preferenceManager.updateStarshipPreference(shipNumber)) {
+            retrieveStarShip(shipNumber)
         }
     }
 
-    private fun mapToStarShipItems(
-        starShips: List<StarshipFleet.Starship>,
+    private fun retrieveStarShip(shipNumber: String) =
+        viewModelScope.launch {
+            val ship = starshipService.getStarShipByNumber(shipNumber)
+            _starShip.value = mapToStarShipItem(ship, preferenceManager.getFavouriteSites())
+        }
+
+    private fun mapToStarShipItem(
+        starShip: StarshipFleet.Starship,
         favs: List<String>
     ) =
-        starShips.map {
+        starShip.let {
             StarShipItem(it.shipNumber, it.name, it.model, it.manufacturer).apply {
                 fav = favs.contains(number)
             }

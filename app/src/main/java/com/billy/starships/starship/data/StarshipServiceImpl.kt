@@ -8,24 +8,37 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import javax.inject.Inject
 
 class StarshipServiceImpl @Inject constructor() : StarshipService {
 
     val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val client = ServiceBuilder.buildService(StarshipClient::class.java)
+
 
     override suspend fun getStarships() = withContext(ioDispatcher) {
         try {
-            val client = ServiceBuilder.buildService(StarshipClient::class.java)
             mapToStarShipFleet(client.getStarships())
         } catch (ex: Exception) {
             StarshipFleet(emptyList(), true, true)
         }
     }
 
+    override suspend fun getStarShipByNumber(starShipNumber: String) = withContext(ioDispatcher) {
+        try {
+            mapStarShip(client.getStarShip(starShipNumber))
+        } catch (ex: Exception) {
+            StarshipFleet.Starship("", "", "", "")
+        }
+    }
+
     interface StarshipClient {
         @GET(" /api/starships/")
         suspend fun getStarships(): StartShipsDO
+
+        @GET(" /api/starships/{shipNumber}")
+        suspend fun getStarShip(@Path("shipNumber") shipNumber: String): StartShipsDO.StarShip
     }
 }
 

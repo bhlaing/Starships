@@ -41,6 +41,12 @@ class StartShipsDO(
         @SerializedName("pilots")
         val pilots: List<String>,
         @SerializedName("films")
-        val films: List<String>
+        val films: List<String>,
+        @SerializedName("created")
+        val created: String,
+        @SerializedName("edited")
+        val edited: String,
+        @SerializedName("url")
+        val url: String
     )
 }

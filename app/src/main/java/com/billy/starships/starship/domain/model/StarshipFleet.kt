@@ -5,6 +5,8 @@ class StarshipFleet(
     val previous: Boolean = false,
     val next: Boolean = true
 ) {
-    class Starship(val name: String, val model: String, val manufacturer: String)
+    class Starship(
+        val shipNumber: String, val name: String, val model: String, val manufacturer: String
+    )
 }
 

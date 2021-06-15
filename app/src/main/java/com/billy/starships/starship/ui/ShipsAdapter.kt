@@ -13,7 +13,8 @@ import com.billy.starships.starship.ui.model.StarShipItem
 class ShipsAdapter : RecyclerView.Adapter<ShipsAdapter.SpaceshipViewHolder>() {
 
     private var starShips: List<StarShipItem> = emptyList()
-    private var onFavListener: (Int) -> Unit = {}
+    private var onFavIconTappedListener: (String) -> Unit = {}
+    private var onItemTappedListener: (String) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpaceshipViewHolder {
         return SpaceshipViewHolder(
@@ -22,13 +23,17 @@ class ShipsAdapter : RecyclerView.Adapter<ShipsAdapter.SpaceshipViewHolder>() {
     }
 
     override fun onBindViewHolder(holderSpaceship: SpaceshipViewHolder, position: Int) =
-        holderSpaceship.bind(starShips[position], onFavListener, position)
+        holderSpaceship.bind(starShips[position], onFavIconTappedListener, onItemTappedListener)
 
 
     override fun getItemCount() = starShips.size
 
-    fun setOnFavListener(onFavListener: (Int) -> Unit) {
-        this.onFavListener = onFavListener
+    fun setOnFavListener(onFavListener: (String) -> Unit) {
+        this.onFavIconTappedListener = onFavListener
+    }
+
+    fun setOnItemTappedListener(onItemTappedListener: (String) -> Unit) {
+        this.onItemTappedListener = onItemTappedListener
     }
 
     fun setStarShips(starShips: List<StarShipItem>) {
@@ -45,14 +50,19 @@ class ShipsAdapter : RecyclerView.Adapter<ShipsAdapter.SpaceshipViewHolder>() {
 
         private val binding = ViewStarshipBinding.bind(view)
 
-        fun bind(starShipItem: StarShipItem, onFavListener: (Int) -> Unit, position: Int) {
+        fun bind(
+            starShipItem: StarShipItem,
+            onFavListener: (String) -> Unit,
+            onItemTappedListener: (String) -> Unit
+        ) {
             with(starShipItem) {
                 binding.shipName.text = name
                 binding.shipModel.text = model
                 binding.shipManufacturer.text = manufacturer
                 binding.favIcon.alpha = if (fav) 1.0f else 0.5f
 
-                binding.favIcon.setOnClickListener { onFavListener(position) }
+                binding.favIcon.setOnClickListener { onFavListener(number) }
+                binding.root.setOnClickListener { onItemTappedListener(number) }
             }
         }
     }

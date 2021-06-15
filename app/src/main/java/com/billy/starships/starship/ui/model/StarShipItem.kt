@@ -1,6 +1,9 @@
 package com.billy.starships.starship.ui.model
 
-class StarShipItem(val name: String,
-                   val model: String,
-                   val manufacturer: String,
-                   val fav: Boolean)
+data class StarShipItem(
+    val number: String,
+    val name: String,
+    val model: String,
+    val manufacturer: String,
+    var fav: Boolean = false
+)

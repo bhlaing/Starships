@@ -4,4 +4,5 @@ import com.billy.starships.starship.domain.model.StarshipFleet
 
 interface StarshipService {
     suspend fun getStarships(): StarshipFleet
+    suspend fun getStarShipByNumber(starShipNumber: String): StarshipFleet.Starship
 }

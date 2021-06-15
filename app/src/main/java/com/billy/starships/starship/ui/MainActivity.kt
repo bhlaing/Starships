@@ -41,11 +41,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpStarshipsList() {
-        shipAdapter = ShipsAdapter().apply { setOnFavListener { viewModel.onFav(it) } }
+        shipAdapter = ShipsAdapter().apply {
+            setOnFavListener { viewModel.onFav(it) }
+            setOnItemTappedListener { navigateToDetails(it) }
+        }
 
         binding.starShipList.apply {
             adapter = shipAdapter
             layoutManager = LinearLayoutManager(context)
         }
     }
+
+    private fun navigateToDetails(shipNumber: String) =
+        startActivity(DescriptionActivity.makeDescriptionIntent(this, shipNumber))
+
 }
