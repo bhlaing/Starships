@@ -59,7 +59,7 @@ App uses 100% kotlin, Architecture components, Coroutines, Retrofit2, Mockito
 **Exceptions**
 - All exceptions are mapped to StarShipException and are delivered to UI in a form of message
 - Generally, exceptions can be broken down into Critical and Non-critical. Non-Critical errors are handled and feedbacked to user and Critical errors  restart/terminate session
-- 
+
 ## Tests
 - Tested for screen scaling Large font, Large display 
 - Unit-tests for ViewModel/PreferenceManager to demonstrate testing techniques
