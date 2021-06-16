@@ -1,13 +1,13 @@
 # Starships
 Table of content
-- Overview
-- Requirements
-- Usage
-- Technologies and libraries used
-- Standards
-- Implementation decisions and compromises
-- Tests
-- Ackowledgement
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Technologies and libraries used](#technologies_and_libraries_used)
+- [Standards](#standards)
+- [Implementation decisions and compromises](#implementation_decisions_and_compromises)
+- [Tests](#tests)
+- [Ackowledgement](#acknowledgement)
 
 ## Overview
 Starship app is developed by Phyo (Billy) Hlaing according to requirements specified by Transurban coding challenge. It displays a list of starships, lets
@@ -57,12 +57,11 @@ App uses 100% kotlin, Architecture components, Coroutines, Retrofit2, Mockito
 **Exceptions**
 - All exceptions are mapped to StarShipException and are delivered to UI in a form of message
 - Generally, exceptions can be broken down into Critical and Non-critical. Non-Critical errors are handled and feedbacked to user and Critical errors  restart/terminate session
-
-##Tests
+- 
+## Tests
 - Tested for screen scaling Large font, Large display 
 - Unit-tests for ViewModel/PreferenceManager to demonstrate testing techniques
 - Consider testing Main to Description flow with espresso. Recommends Screen/Robot pattern
 - Consider testing Mappers
-
-##Acknowledgement
+## Acknowledgement
 I would like to thank	David Duieb, Geoff Montgomery, Alexander Gvozdik,Joel Schmidt and Stephanie Futerman for providing me with this opportunity
