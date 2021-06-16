@@ -7,6 +7,7 @@ Table of content
 - [Standards](#standards)
 - [Implementation decisions and compromises](#implementation_decisions_and_compromises)
 - [Tests](#tests)
+- [Continuous integration](#continuous_integration)
 - [Ackowledgement](#acknowledgement)
 
 ## Overview
@@ -66,5 +67,10 @@ App uses 100% kotlin, Architecture components, Coroutines, Retrofit2, Mockito
 - Unit-tests for ViewModel/PreferenceManager to demonstrate testing techniques
 - Consider testing Main to Description flow with espresso. Recommends Screen/Robot pattern
 - Consider testing Mappers
+
+## Continuous integration
+- Simple CI set up with git Actions for pull requests demonstrated [here](https://github.com/bhlaing/Starships/pull/1)
+- Please see [.github/workflows/ci_pr_build.yml](https://github.com/bhlaing/Starships/tree/master/.github/workflows) for implementation
+
 ## Acknowledgement
 I would like to thank	David Duieb, Geoff Montgomery, Alexander Gvozdik,Joel Schmidt and Stephanie Futerman for providing me with this opportunity
