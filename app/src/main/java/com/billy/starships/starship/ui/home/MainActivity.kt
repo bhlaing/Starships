@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }.create()
     }
 
-
+    // region Life-cycle callback
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,7 +43,9 @@ class MainActivity : AppCompatActivity() {
 
         super.onStart()
     }
+    // endregion
 
+    // region Private functions
     private fun setUpObservers() {
         observeNonNull(viewModel.starShips, ::onStarShipsReceived)
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
@@ -87,8 +89,11 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context)
         }
     }
+    // region Private functions
 
+    // region navigation
     private fun navigateToDetails(shipNumber: String) =
         startActivity(DescriptionActivity.makeDescriptionIntent(this, shipNumber))
+    // endregion
 
 }

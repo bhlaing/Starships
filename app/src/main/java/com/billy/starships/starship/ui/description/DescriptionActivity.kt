@@ -38,6 +38,7 @@ class DescriptionActivity : AppCompatActivity() {
             }
     }
 
+    // region Life-cycle callbacks
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,7 +60,9 @@ class DescriptionActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+    // endregion
 
+    // region private functions
     private fun setUpObservers() {
         observeNonNull(viewModel.starShip, ::onStarShipReceived)
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
@@ -106,4 +109,5 @@ class DescriptionActivity : AppCompatActivity() {
             supportActionBar?.setDisplayShowHomeEnabled(true)
         }
     }
+    // endregion
 }

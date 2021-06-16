@@ -28,6 +28,7 @@ class DescriptionViewModel @Inject constructor(
     private val _error: MutableLiveData<String> = MutableLiveData()
     val error: LiveData<String> = _error
 
+    // region public functions
     fun initialise(shipNumber: String) = retrieveStarShip(shipNumber)
 
     fun onFav(shipNumber: String) {
@@ -35,7 +36,9 @@ class DescriptionViewModel @Inject constructor(
             retrieveStarShip(shipNumber)
         }
     }
+    // endregion
 
+    // region private functions
     private fun retrieveStarShip(shipNumber: String) =
         viewModelScope.launch {
             _loading.value = true
@@ -59,4 +62,5 @@ class DescriptionViewModel @Inject constructor(
                 fav = favs.contains(number)
             }
         }
+    // region private functions
 }

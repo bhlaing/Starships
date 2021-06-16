@@ -1,4 +1,4 @@
-package com.billy.starships.ui
+package com.billy.starships.ui.preference
 
 import com.billy.starships.starship.ui.shared.preferences.PreferenceManagerImpl
 import org.junit.Assert.assertEquals
