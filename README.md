@@ -23,6 +23,7 @@ Please see the requirements [here](https://github.com/bhlaing/Starships/blob/mas
 - Tap on Cell area to navigate to description
 - Tap on the heart to make a starship as favourite (Favourite spaceships are set to Alpha 1.0 and regular ones are set to Alpha 0.5
 - When there is an error retrieving starships, a snack bar will be displayed. Tap on Retry to refresh the screen
+
 ![](usage_.png)
 
 ## Technologies and libraries used
