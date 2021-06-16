@@ -74,4 +74,4 @@ App uses 100% kotlin, Architecture components, Coroutines, Retrofit2, Mockito
 - Please see [.github/workflows/ci_pr_build.yml](https://github.com/bhlaing/Starships/tree/master/.github/workflows) for implementation
 
 ## Acknowledgement
-I would like to thank	David Duieb, Geoff Montgomery, Alexander Gvozdik,Joel Schmidt and Stephanie Futerman for providing me with this opportunity
+I would like to thank	David Duieb, Geoff Montgomery, Alexander Gvozdik, Joel Schmidt and Stephanie Futerman for this opportunity
