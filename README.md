@@ -7,6 +7,7 @@ Table of content
 - [Standards](#standards)
 - [Implementation decisions and compromises](#implementation_decisions_and_compromises)
 - [Tests](#tests)
+- [Continuous integration](#continuous_integration)
 - [Ackowledgement](#acknowledgement)
 
 ## Overview
@@ -22,6 +23,7 @@ Please see the requirements [here](https://github.com/bhlaing/Starships/blob/mas
 - Tap on Cell area to navigate to description
 - Tap on the heart to make a starship as favourite (Favourite spaceships are set to Alpha 1.0 and regular ones are set to Alpha 0.5
 - When there is an error retrieving starships, a snack bar will be displayed. Tap on Retry to refresh the screen
+
 ![](usage_.png)
 
 ## Technologies and libraries used
@@ -66,5 +68,10 @@ App uses 100% kotlin, Architecture components, Coroutines, Retrofit2, Mockito
 - Unit-tests for ViewModel/PreferenceManager to demonstrate testing techniques
 - Consider testing Main to Description flow with espresso. Recommends Screen/Robot pattern
 - Consider testing Mappers
+
+## Continuous integration
+- Simple CI set up with git Actions for pull requests demonstrated [here](https://github.com/bhlaing/Starships/pull/1)
+- Please see [.github/workflows/ci_pr_build.yml](https://github.com/bhlaing/Starships/tree/master/.github/workflows) for implementation
+
 ## Acknowledgement
-I would like to thank	David Duieb, Geoff Montgomery, Alexander Gvozdik,Joel Schmidt and Stephanie Futerman for providing me with this opportunity
+I would like to thank	David Duieb, Geoff Montgomery, Alexander Gvozdik, Joel Schmidt and Stephanie Futerman for this opportunity
