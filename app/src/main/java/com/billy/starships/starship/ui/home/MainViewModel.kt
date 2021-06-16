@@ -1,4 +1,4 @@
-package com.billy.starships.starship.ui
+package com.billy.starships.starship.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,6 @@ import com.billy.starships.starship.domain.model.StarshipFleet
 import com.billy.starships.starship.ui.model.StarShipItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel

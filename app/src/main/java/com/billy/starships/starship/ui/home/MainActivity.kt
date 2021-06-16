@@ -1,4 +1,4 @@
-package com.billy.starships.starship.ui
+package com.billy.starships.starship.ui.home
 
 import android.os.Bundle
 import android.view.View.GONE

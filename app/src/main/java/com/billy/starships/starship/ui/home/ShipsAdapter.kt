@@ -1,4 +1,4 @@
-package com.billy.starships.starship.ui
+package com.billy.starships.starship.ui.home
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

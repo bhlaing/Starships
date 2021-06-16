@@ -1,12 +1,15 @@
-package com.billy.starships.ui
+package com.billy.starships.ui.description
 
 import com.billy.starships.BaseCoroutinesTest
 import com.billy.starships.starship.data.StarshipService
+import com.billy.starships.starship.domain.exception.StarShipException
 import com.billy.starships.starship.ui.description.DescriptionViewModel
 import com.billy.starships.starship.ui.shared.preferences.PreferenceManager
+import com.billy.starships.ui.buildStarShip
 import junit.framework.Assert.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -142,6 +145,18 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
 
             verify(preferenceManager).updateStarshipPreference("2")
             verify(starShipService).getStarShipByNumber("2")
+        }
+    }
+
+    @Test
+    fun `given an exception, then displays exception message`() {
+        runBlocking {
+            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(starShipService.getStarShipByNumber("1")).thenThrow(StarShipException("Oops"))
+
+            viewModel.initialise("1")
+
+            Assert.assertEquals("Oops", viewModel.error.value!!)
         }
     }
 }

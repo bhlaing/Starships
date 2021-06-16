@@ -17,7 +17,7 @@
         tools:targetApi="m">
         <activity android:name=".starship.ui.description.DescriptionActivity" />
         <activity
-            android:name=".starship.ui.MainActivity"
+            android:name=".starship.ui.home.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.Starships.NoActionBar">
             <intent-filter>
