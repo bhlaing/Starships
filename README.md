@@ -46,7 +46,7 @@ App uses 100% kotlin, Architecture components, Coroutines, Retrofit2, Mockito
 
 ## Implementation decisions and compromises
 **Architecture**
-- A clear seperation between Presentation, Domain, Data layers is achieved by clean architecture
+- Starship module is seperated into ui/domain/data layers to allow scaling
 - MVVM to utilise architecture component support and coroutines. Also to allow scaling into 1 to many relationship between View and ViewModel
 - Preferences currently sits in _ui_ packange _shared_ folder with assumption to keep it purely as presentation logic
 
