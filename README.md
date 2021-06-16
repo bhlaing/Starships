@@ -14,7 +14,7 @@ Table of content
 Starship app is developed by Phyo (Billy) Hlaing according to requirements specified by Transurban coding challenge. It displays a list of starships, lets
 user select their favourites and view detailed description of a starship
 
-![](starship_demo.gif)
+![](demo.gif)
 
 ## Requirements
 Please see the requirements [here](https://github.com/bhlaing/Starships/blob/master/coding_challenge.pdf)
