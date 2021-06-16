@@ -11,7 +11,7 @@ class PreferenceManagerTest {
     fun `given an update to favourite ships, when updating a new ship, then adds it to favourite list`() {
         preferenceManagerImpl.updateStarshipPreference("1")
 
-        assertEquals("1", preferenceManagerImpl.getFavouriteSites().first())
+        assertEquals("1", preferenceManagerImpl.getFavouriteStarshipNumbers().first())
     }
 
     @Test
@@ -19,6 +19,6 @@ class PreferenceManagerTest {
         preferenceManagerImpl.updateStarshipPreference("1")
         preferenceManagerImpl.updateStarshipPreference("1")
 
-        assertEquals(0, preferenceManagerImpl.getFavouriteSites().size)
+        assertEquals(0, preferenceManagerImpl.getFavouriteStarshipNumbers().size)
     }
 }

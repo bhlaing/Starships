@@ -35,7 +35,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a ship number then retrieves starship correctly`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarShipByNumber("1")).thenReturn(buildStarShip())
 
             viewModel.initialise("1")
@@ -47,7 +47,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a ship when ship number matches user preference, then display it as favourite`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(listOf("1"))
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(listOf("1"))
             whenever(starShipService.getStarShipByNumber("1")).thenReturn(
                 buildStarShip("1", "name1", "model1", "manufacturer1")
             )
@@ -65,7 +65,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a ship when ship does not matche user preference, then does not display it as favourite`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(listOf("1"))
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(listOf("1"))
             whenever(starShipService.getStarShipByNumber("1")).thenReturn(
                 buildStarShip("2", "name1", "model1", "manufacturer1")
             )
@@ -83,7 +83,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a ship  when ship does not match user preference, then does not display it as favourite`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(listOf("1"))
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(listOf("1"))
             whenever(starShipService.getStarShipByNumber("1")).thenReturn(
                 buildStarShip("2", "name1", "model1", "manufacturer1")
             )
@@ -101,7 +101,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a ship then displays details correctly`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(listOf("1"))
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(listOf("1"))
             whenever(starShipService.getStarShipByNumber("1")).thenReturn(
                 buildStarShip("2", "name1", "model1", "manufacturer1")
             )
@@ -124,7 +124,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a starship, when favourite is toggled, then update favourite preference`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
 
             viewModel.onFav("2")
 
@@ -135,7 +135,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a favourite toggle, when success, then refreshes details`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarShipByNumber("2")).thenReturn(
                 buildStarShip("2", "name1", "model1", "manufacturer1")
             )
@@ -151,7 +151,7 @@ class DescriptionViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given an exception, then displays exception message`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarShipByNumber("1")).thenThrow(StarShipException("Oops"))
 
             viewModel.initialise("1")

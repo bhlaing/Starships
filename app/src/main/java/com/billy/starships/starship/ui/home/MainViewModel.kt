@@ -42,7 +42,7 @@ class MainViewModel @Inject constructor(
             try {
                 val fleet = starshipService.getStarships()
                 _starShips.value =
-                    mapToStarShipItems(fleet.starShips, preferenceManager.getFavouriteSites())
+                    mapToStarShipItems(fleet.starShips, preferenceManager.getFavouriteStarshipNumbers())
             } catch (ex: StarShipException) {
                 _error.value = ex.message
             } finally {

@@ -24,5 +24,5 @@ class PreferenceManagerImpl @Inject constructor() : PreferenceManager {
         return true
     }
 
-    override fun getFavouriteSites(): List<String> = favouriteStarShips.toList()
+    override fun getFavouriteStarshipNumbers(): List<String> = favouriteStarShips.toList()
 }

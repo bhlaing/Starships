@@ -35,7 +35,7 @@ class MainViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a fleet of starships, when user has no preference, then does not display items as favourite`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarships()).thenReturn(buildFleet())
 
             viewModel.initialise()
@@ -47,7 +47,7 @@ class MainViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a fleet of starships, when user has preference, then display items as favourite`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(listOf("1", "3"))
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(listOf("1", "3"))
             whenever(starShipService.getStarships()).thenReturn(
                 buildFleet(
                     listOf(
@@ -71,7 +71,7 @@ class MainViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a fleet of starships, display correct attributes`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarships()).thenReturn(
                 buildFleet(
                     listOf(
@@ -93,7 +93,7 @@ class MainViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a fleet of starships, when favourite is toggled, then update favourite preference`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarships()).thenReturn(buildFleet())
 
             viewModel.onFav("2")
@@ -105,7 +105,7 @@ class MainViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a preference update, when successful, then refreshes starships`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(preferenceManager.updateStarshipPreference("2")).thenReturn(true)
             whenever(starShipService.getStarships()).thenReturn(buildFleet())
 
@@ -119,7 +119,7 @@ class MainViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given an exception, then displays exception message to user`() {
         runBlocking {
-            whenever(preferenceManager.getFavouriteSites()).thenReturn(emptyList())
+            whenever(preferenceManager.getFavouriteStarshipNumbers()).thenReturn(emptyList())
             whenever(starShipService.getStarships()).thenThrow(StarShipException("Oops"))
 
             viewModel.initialise()

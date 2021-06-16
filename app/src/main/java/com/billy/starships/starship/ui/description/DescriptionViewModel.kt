@@ -44,7 +44,7 @@ class DescriptionViewModel @Inject constructor(
             _loading.value = true
             try {
                 val ship = starshipService.getStarShipByNumber(shipNumber)
-                _starShip.value = mapToStarShipItem(ship, preferenceManager.getFavouriteSites())
+                _starShip.value = mapToStarShipItem(ship, preferenceManager.getFavouriteStarshipNumbers())
             } catch (ex: StarShipException) {
                 _error.value = ex.message
             } finally {

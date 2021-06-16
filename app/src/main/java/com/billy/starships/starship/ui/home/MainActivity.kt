@@ -6,7 +6,9 @@ import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.billy.starships.R
 import com.billy.starships.databinding.ActivityMainBinding
 import com.billy.starships.shared.observeNonNull
@@ -87,6 +89,8 @@ class MainActivity : AppCompatActivity() {
         binding.starShipList.apply {
             adapter = shipAdapter
             layoutManager = LinearLayoutManager(context)
+
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }
     // region Private functions
