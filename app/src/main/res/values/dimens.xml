@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="layout_inset">16dp</dimen>
     <dimen name="label_inset">110dp</dimen>
-    <dimen name="content_inset">260dp</dimen>
+    <dimen name="content_inset">180dp</dimen>
 </resources>

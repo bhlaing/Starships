@@ -51,6 +51,8 @@ class ShipsAdapter : RecyclerView.Adapter<ShipsAdapter.SpaceshipViewHolder>() {
             onItemTappedListener: (String) -> Unit
         ) {
             with(starShipItem) {
+                binding.layoutStarshipWrapper.visibility = View.VISIBLE
+
                 binding.shipName.text = name
                 binding.shipModel.text = model
                 binding.shipManufacturer.text = manufacturer

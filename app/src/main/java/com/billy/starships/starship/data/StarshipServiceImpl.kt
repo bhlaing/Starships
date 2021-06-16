@@ -1,5 +1,6 @@
 package com.billy.starships.starship.data
 
+import com.billy.starships.starship.domain.exception.StarShipException
 import com.billy.starships.starship.domain.model.StarshipFleet
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +22,9 @@ class StarshipServiceImpl @Inject constructor() : StarshipService {
         try {
             mapToStarShipFleet(client.getStarships())
         } catch (ex: Exception) {
-            StarshipFleet(emptyList(), true, true)
+            // Catch any exception here to re-throw as domain exception
+            // to demonstrate exception handling
+            throw StarShipException(ex.message)
         }
     }
 
@@ -29,7 +32,9 @@ class StarshipServiceImpl @Inject constructor() : StarshipService {
         try {
             mapStarShip(client.getStarShip(starShipNumber))
         } catch (ex: Exception) {
-            StarshipFleet.Starship("", "", "", "")
+            // Catch any exception here to re-throw as domain exception
+            //  to demonstrate exception handling
+            throw StarShipException(ex.message)
         }
     }
 

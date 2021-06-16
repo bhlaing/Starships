@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.billy.starships.starship.ui.shared.preferences.PreferenceManager
 import com.billy.starships.starship.data.StarshipService
+import com.billy.starships.starship.domain.exception.StarShipException
 import com.billy.starships.starship.domain.model.StarshipFleet
 import com.billy.starships.starship.ui.model.StarShipItem
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,6 +25,9 @@ class DescriptionViewModel @Inject constructor(
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean> = _loading
 
+    private val _error: MutableLiveData<String> = MutableLiveData()
+    val error: LiveData<String> = _error
+
     fun initialise(shipNumber: String) = retrieveStarShip(shipNumber)
 
     fun onFav(shipNumber: String) {
@@ -35,9 +39,15 @@ class DescriptionViewModel @Inject constructor(
     private fun retrieveStarShip(shipNumber: String) =
         viewModelScope.launch {
             _loading.value = true
-            val ship = starshipService.getStarShipByNumber(shipNumber)
-            _starShip.value = mapToStarShipItem(ship, preferenceManager.getFavouriteSites())
-            _loading.value = false
+            try {
+                val ship = starshipService.getStarShipByNumber(shipNumber)
+                _starShip.value = mapToStarShipItem(ship, preferenceManager.getFavouriteSites())
+            } catch (ex: StarShipException) {
+                _error.value = ex.message
+            } finally {
+                _loading.value = false
+
+            }
         }
 
     private fun mapToStarShipItem(

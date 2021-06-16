@@ -1,6 +1,8 @@
 package com.billy.starships.starship.ui
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import com.billy.starships.databinding.ActivityMainBinding
 import com.billy.starships.shared.observeNonNull
 import com.billy.starships.starship.ui.description.DescriptionActivity
 import com.billy.starships.starship.ui.model.StarShipItem
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setUpStarshipsList()
         setUpObservers()
     }
@@ -45,9 +47,24 @@ class MainActivity : AppCompatActivity() {
     private fun setUpObservers() {
         observeNonNull(viewModel.starShips, ::onStarShipsReceived)
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
+        observeNonNull(viewModel.error, ::onError)
+    }
+
+    private fun onError(message: String) {
+        binding.starShipList.visibility = GONE
+
+        val snackBar = Snackbar.make(binding.root, message, Snackbar.LENGTH_INDEFINITE)
+        val retryAction = {
+            viewModel.initialise()
+            snackBar.dismiss()
+        }
+
+        snackBar.setAction("retry") { retryAction() }
+            .show()
     }
 
     private fun onStarShipsReceived(starShipItems: List<StarShipItem>) {
+        binding.starShipList.visibility = VISIBLE
         shipAdapter.setStarShips(starShipItems)
     }
 
@@ -55,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         if (loading) {
             loadingMessage.show()
         } else {
-            if(loadingMessage.isShowing) loadingMessage.dismiss()
+            if (loadingMessage.isShowing) loadingMessage.dismiss()
         }
     }
 

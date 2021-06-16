@@ -1,80 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_starship_wrapper"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:visibility="invisible"
+    tools:visibility="visible">
 
     <LinearLayout
-        android:id="@+id/name_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="@dimen/layout_inset"
+        android:layout_marginLeft="@dimen/layout_inset"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/SpaceShipApp.Text.ItemTitle"
-            android:layout_width="@dimen/label_inset"
+        <RelativeLayout
+            android:id="@+id/name_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ship_name" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/ship_name"
-            style="@style/SpaceShipApp.Text.Paragraph"
-            android:layout_width="@dimen/content_inset"
+            <TextView
+                android:id="@+id/name_text"
+                style="@style/SpaceShipApp.Text.ItemTitle"
+                android:layout_width="@dimen/label_inset"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="@string/ship_name" />
+
+            <TextView
+                android:id="@+id/ship_name"
+                style="@style/SpaceShipApp.Text.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/name_text"
+                android:layout_toRightOf="@+id/name_text"
+                tools:text="Starship name 1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/model_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Starship name 1" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/model_text"
+                style="@style/SpaceShipApp.Text.ItemTitle"
+                android:layout_width="@dimen/label_inset"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="@string/ship_model" />
+
+            <TextView
+                android:id="@+id/ship_model"
+                style="@style/SpaceShipApp.Text.Paragraph"
+                android:layout_width="@dimen/content_inset"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/model_text"
+                android:layout_toRightOf="@+id/model_text"
+                tools:text="Starship model 1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/manufacturer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/manufacturer_text"
+                style="@style/SpaceShipApp.Text.ItemTitle"
+                android:layout_width="@dimen/label_inset"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="@string/ship_manufacturer" />
+
+            <TextView
+                android:id="@+id/ship_manufacturer"
+                style="@style/SpaceShipApp.Text.Paragraph"
+                android:layout_width="@dimen/content_inset"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/manufacturer_text"
+                android:layout_toRightOf="@+id/manufacturer_text"
+                tools:text="Starship model 1" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/model_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name_layout"
-        android:orientation="horizontal">
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/layout_inset"
+        android:layout_marginLeft="16dp"
+        android:layout_weight="0.2">
 
-        <TextView
-            style="@style/SpaceShipApp.Text.ItemTitle"
-            android:layout_width="@dimen/label_inset"
+        <ImageView
+            android:id="@+id/fav_icon"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ship_model" />
-
-        <TextView
-            android:id="@+id/ship_model"
-            style="@style/SpaceShipApp.Text.Paragraph"
-            android:layout_width="@dimen/content_inset"
-            android:layout_height="wrap_content"
-            tools:text="Starship model 1" />
+            android:padding="@dimen/layout_inset"
+            android:src="@drawable/ic_favorite_24" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/manufacturer_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/model_layout"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/SpaceShipApp.Text.ItemTitle"
-            android:layout_width="@dimen/label_inset"
-            android:layout_height="wrap_content"
-            android:text="@string/ship_manufacturer" />
-
-        <TextView
-            android:id="@+id/ship_manufacturer"
-            style="@style/SpaceShipApp.Text.Paragraph"
-            android:layout_width="@dimen/content_inset"
-            android:layout_height="wrap_content"
-            tools:text="Starship model 1" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/fav_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:padding="16dp"
-        android:src="@drawable/ic_favorite_24" />
-
-</RelativeLayout>
+</LinearLayout>
