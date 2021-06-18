@@ -16,7 +16,7 @@ class PreferenceManagerTest {
 
     @Test
     fun `given an update to favourite ship, when updating existing ship, then removes it`() {
-        preferenceManagerImpl.updateStarshipPreference("1")
+        preferenceManagerImpl.updateStarshipPreference("2")
         preferenceManagerImpl.updateStarshipPreference("1")
 
         assertEquals(0, preferenceManagerImpl.getFavouriteStarshipNumbers().size)
